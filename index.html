@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma Galerie Photo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Ma Galerie Photo</h1>
+
+  <div class="gallery">
+    <div class="photo" onclick="zoomPhoto(this)">
+      <img src="images/photo1.jpg" alt="Un lever de soleil sur la montagne">
+      <p>Lever de soleil sur la montagne</p>
+    </div>
+    <div class="photo" onclick="zoomPhoto(this)">
+      <img src="images/photo2.jpg" alt="Promenade en forêt automnale">
+      <p>Forêt en automne</p>
+    </div>
+  </div>
+
+  <div id="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script>
+    function zoomPhoto(el) {
+      const img = el.querySelector('img');
+      const caption = el.querySelector('p');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-caption').innerText = caption.innerText;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeZoom() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
